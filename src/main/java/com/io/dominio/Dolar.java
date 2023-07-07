@@ -24,6 +24,9 @@ public class Dolar extends Moeda {
 	
 	
 	public void setValor(BigDecimal valor) {
+		if (valor == null ||  valor.doubleValue() <= 0) {
+	           throw new ValorInvalidoException("Valor invalido passado com parametro");
+			}
 		this.valor = valor;
 	}
 	
