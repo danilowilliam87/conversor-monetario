@@ -14,7 +14,7 @@ public abstract class Moeda {
 	
 	protected Locale locale;
 	
-	protected NumberFormat format;
+	protected NumberFormat formatador;
 	
 	public Moeda() {
 		super();

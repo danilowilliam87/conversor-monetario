@@ -15,9 +15,9 @@ public class PesoArgentino extends Moeda {
 		}
 		this.valor = valor.setScale(2,RoundingMode.HALF_EVEN);
 		this.locale = new Locale("es", "AR");
-		this.format = NumberFormat.getCurrencyInstance(locale);
-		this.format.setMaximumFractionDigits(2);
-		this.format.setMinimumFractionDigits(2);
+		this.formatador = NumberFormat.getCurrencyInstance(locale);
+		this.formatador.setMaximumFractionDigits(2);
+		this.formatador.setMinimumFractionDigits(2);
 		this.sigla = "ARS $";
 		this.paramUrl = "ARS";
 	}
@@ -42,7 +42,7 @@ public class PesoArgentino extends Moeda {
 	
 	@Override
 	public String toString() {
-		return this.format.format(this.valor);
+		return this.formatador.format(this.valor);
 	}
 	
 	

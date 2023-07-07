@@ -21,14 +21,14 @@ public class Main {
 		PesoArgentino argentino = new PesoArgentino(valor);
 		LibraEsterlina esterlina = new LibraEsterlina(valor);
 		
-		System.out.println(real);
-		System.out.println(real.getSigla());
-		System.out.println(valor.doubleValue());
-		System.out.println(argentino);
-		System.out.println(chileno);
+//		System.out.println(real);
+//		System.out.println(real.getSigla());
+//		System.out.println(valor.doubleValue());
+//		System.out.println(argentino);
+//		System.out.println(chileno);
 		System.out.println(dolar);
-		System.out.println(euro);
-		System.out.println(esterlina);
+//		System.out.println(euro);
+//		System.out.println(esterlina);
 
 	}
 

@@ -15,9 +15,9 @@ public class Euro extends Moeda {
 		}
 		this.valor = valor.setScale(2,RoundingMode.HALF_EVEN);
 		this.locale = new Locale("de", "DE");
-		this.format = NumberFormat.getCurrencyInstance(locale);
-		this.format.setMaximumFractionDigits(2);
-		this.format.setMinimumFractionDigits(2);
+		this.formatador = NumberFormat.getCurrencyInstance(locale);
+		this.formatador.setMaximumFractionDigits(2);
+		this.formatador.setMinimumFractionDigits(2);
 		this.sigla = "EUR (€)";
 		this.paramUrl = "EUR";
 	}
@@ -42,7 +42,7 @@ public class Euro extends Moeda {
 	
 	@Override
 	public String toString() {
-		return this.format.format(this.valor);
+		return this.formatador.format(this.valor);
 	}
 	
 	
