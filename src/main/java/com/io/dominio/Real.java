@@ -10,7 +10,7 @@ import com.io.excecao.ValorInvalidoException;
 public class Real extends Moeda {
 
 	public Real(BigDecimal valor) {
-		if (valor == null ||  valor.doubleValue() <= 0) {
+		if (valor == null ||  valor.doubleValue() < 1.0) {
            throw new ValorInvalidoException("Valor invalido passado com parametro");
 		}
 		this.valor = valor.setScale(2,RoundingMode.HALF_EVEN);
