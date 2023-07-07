@@ -26,8 +26,8 @@ public class Main {
 //		System.out.println(valor.doubleValue());
 //		System.out.println(argentino);
 //		System.out.println(chileno);
-		System.out.println(dolar);
-//		System.out.println(euro);
+//		System.out.println(dolar);
+		System.out.println(euro);
 //		System.out.println(esterlina);
 
 	}
