@@ -35,6 +35,23 @@ public abstract class Moeda {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getParamUrl() {
+		return paramUrl;
+	}
+
+	public void setParamUrl(String paramUrl) {
+		this.paramUrl = paramUrl;
+	}
+	
 	
 	
 

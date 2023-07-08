@@ -36,6 +36,7 @@ public class Real extends Moeda {
 	
 	
 	public Real() {
+		this.valor = new BigDecimal(1.00);
 		this.valor.setScale(2,RoundingMode.HALF_EVEN);
 		this.locale = new Locale("pt", "BR");
 		this.formatador = NumberFormat.getCurrencyInstance(locale);

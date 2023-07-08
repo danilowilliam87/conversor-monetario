@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.io.dominio.Dolar;
 import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
-import com.io.impl.ConversorDolar;
+import com.io.impl.ConversorImpl;
 
 class ConversorDolarTest {
 
@@ -47,14 +47,13 @@ class ConversorDolarTest {
 		assertEquals("$100.00", dolar.toString());
 	}
 	
-//	@Test
-//	void converterDolarParaReal() {
-//		BigDecimal valor = new BigDecimal(10.00);
-//		BigDecimal cotacao = new BigDecimal(4.87);
-//		Dolar dolar = new Dolar(valor);
-//		Real real = new Real();
-//		ConversorDolar conversorDolar = new ConversorDolar(cotacao);
-//		real = (Real) conversorDolar.converter(dolar, real);
-//	}
+	@Test
+    void converterDolarEmRealTest() {
+    	Real real = new Real();
+    	BigDecimal valor = new BigDecimal(1.00);
+    	Dolar dolar = new Dolar(valor);
+    	ConversorImpl conversorImpl = new ConversorImpl();
+    	assertEquals("R$ 4,87", conversorImpl.converter(dolar, real).toString());
+    }
 
 }
