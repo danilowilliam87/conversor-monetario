@@ -6,9 +6,18 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 import com.io.excecao.ValorInvalidoException;
-
+/**
+ * @author Danilo William
+ * Entidade que representa a moeda Peso Argentino
+ */
 public class PesoArgentino extends Moeda {
 
+	/**
+	 * 
+	 * @param valor
+	 * construtor que valida o valor passado como parametro 
+	 * e gera um novo objeto
+	 */
 	public PesoArgentino(BigDecimal valor) {
 		if (valor == null ||  valor.doubleValue() <= 0) {
            throw new ValorInvalidoException("Valor invalido passado com parametro");
@@ -23,8 +32,22 @@ public class PesoArgentino extends Moeda {
 	}
 	
 	
+	
+	public PesoArgentino() {
+		this.valor.setScale(2, RoundingMode.HALF_EVEN);
+		this.locale = new Locale("es", "AR");
+		this.formatador = NumberFormat.getCurrencyInstance(locale);
+		this.formatador.setMaximumFractionDigits(2);
+		this.formatador.setMinimumFractionDigits(2);
+		this.sigla = "ARS $";
+		this.paramUrl = "ARS";
+	}
+
+
+
+
 	public void setValor(BigDecimal valor) {
-		if (valor == null ||  valor.doubleValue() <= 0) {
+		if (valor == null ||  valor.doubleValue() < 1.0) {
 	           throw new ValorInvalidoException("Valor invalido passado com parametro");
 			}
 		this.valor = valor;

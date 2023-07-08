@@ -6,11 +6,20 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 import com.io.excecao.ValorInvalidoException;
-
+/**
+ * @author Danilo William
+ * Entidade que representa a moeda Libra Esterlina
+ */
 public class LibraEsterlina extends Moeda {
 
+	/**
+	 * 
+	 * @param valor
+	 * construtor que valida o valor passado como parametro 
+	 * e gera um novo objeto
+	 */
 	public LibraEsterlina(BigDecimal valor) {
-		if (valor == null ||  valor.doubleValue() <= 0) {
+		if (valor == null ||  valor.doubleValue() < 1.0) {
            throw new ValorInvalidoException("Valor invalido passado com parametro");
 		}
 		this.valor = valor.setScale(2,RoundingMode.HALF_EVEN);
@@ -23,6 +32,20 @@ public class LibraEsterlina extends Moeda {
 	}
 	
 	
+	
+	
+	public LibraEsterlina() {
+		this.valor.setScale(2, RoundingMode.HALF_EVEN);
+		this.formatador = NumberFormat.getCurrencyInstance(locale);
+		this.formatador.setMaximumFractionDigits(2);
+		this.formatador.setMinimumFractionDigits(2);
+		this.sigla = "GBP $";
+		this.paramUrl = "GBP";
+	}
+
+
+
+
 	public void setValor(BigDecimal valor) {
 		if (valor == null ||  valor.doubleValue() <= 0) {
 	           throw new ValorInvalidoException("Valor invalido passado com parametro");

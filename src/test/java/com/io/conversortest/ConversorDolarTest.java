@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
 import com.io.dominio.Dolar;
+import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
+import com.io.impl.ConversorDolar;
 
 class ConversorDolarTest {
 
@@ -44,5 +46,15 @@ class ConversorDolarTest {
 		Dolar dolar = new Dolar(valor);
 		assertEquals("$100.00", dolar.toString());
 	}
+	
+//	@Test
+//	void converterDolarParaReal() {
+//		BigDecimal valor = new BigDecimal(10.00);
+//		BigDecimal cotacao = new BigDecimal(4.87);
+//		Dolar dolar = new Dolar(valor);
+//		Real real = new Real();
+//		ConversorDolar conversorDolar = new ConversorDolar(cotacao);
+//		real = (Real) conversorDolar.converter(dolar, real);
+//	}
 
 }
