@@ -3,6 +3,8 @@ package com.io.util;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import com.io.excecao.UtilException;
+
 
 /**
  * @author Danilo Wiliam
@@ -22,51 +24,7 @@ public class StringFormatUtils {
 			int indice = json.indexOf(":");
 			return json.substring(indice + 1);
 		} catch (RuntimeException e) {
-			throw new RuntimeException("Erro ao aplicar formatacao : " + e.getMessage());
+			throw new UtilException("Erro ao aplicar formatacao : " + e.getMessage());
 		}
 	}
-	
-	/**
-	 * 
-	 * @param valor
-	 * @param idioma
-	 * @param pais
-	 * @return String
-	 * 
-	 * realiza formata��o de valores monetarios
-	 */
-	public static String formatar(double valor, String idioma, String pais) {
-		try {
-			Locale locale = new Locale(idioma, pais);
-			NumberFormat formato = NumberFormat.getCurrencyInstance(locale);
-			formato.setMinimumFractionDigits(2);
-			formato.setMaximumFractionDigits(2);
-			return formato.format(valor);
-		} catch (Exception e) {
-			// TODO: handle exception
-			throw new RuntimeException("Erro ao aplicar formatacao : " + e.getMessage());
-		}
-	}
-        /**
-         * 
-         * @param valor
-         * @param novoLocale
-         * @return String
-         * 
-         * realiza formata��o de valores monetarios
-         */
-        public static String formatar(double valor, Locale novoLocale) {
-		try {
-			Locale locale = novoLocale;
-			NumberFormat formato = NumberFormat.getCurrencyInstance(locale);
-			formato.setMinimumFractionDigits(2);
-			formato.setMaximumFractionDigits(2);
-			return formato.format(valor);
-		} catch (Exception e) {
-			// TODO: handle exception
-			throw new RuntimeException("Erro ao aplicar formatacao : " + e.getMessage());
-		}
-	}
-        
-
 }

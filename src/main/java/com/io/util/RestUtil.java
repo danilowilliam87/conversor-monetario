@@ -6,6 +6,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
+import com.io.excecao.UtilException;
+
 /**
  * @author Danilo William
  * classe que realizar a chamada REST
@@ -35,7 +37,7 @@ public class RestUtil {
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 			return String.valueOf(response.body());
 		} catch (Exception e) {
-			throw new RuntimeException("Erro ao aplicar formatacao : " + e.getMessage());
+			throw new UtilException("Erro ao aplicar formatacao : " + e.getMessage());
 		}
 	 }
 	

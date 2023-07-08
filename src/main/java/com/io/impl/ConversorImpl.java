@@ -25,14 +25,22 @@ public class ConversorImpl implements Conversor{
 			throw new ConversorException("informe moedas de tipos diferentes");
 		}
 		
-		String url = Url.getUrl(origem, destino);
-		String json = RestUtil.get(url);
-		json = StringFormatUtils.formatar(json);
-		DadosRetornoApi api = JsonUtil.converterJsonParaObjeto(json);
-		BigDecimal taxaDeCambio = new BigDecimal(api.getBid());
-		double valorConvertido = origem.getValor().multiply(taxaDeCambio).doubleValue();
-		destino.setValor(new BigDecimal(valorConvertido));
-		return destino;
+		try {
+			String url = Url.getUrl(origem, destino);
+			String json = RestUtil.get(url);
+			json = StringFormatUtils.formatar(json);
+			DadosRetornoApi api = JsonUtil.converterJsonParaObjeto(json);
+			BigDecimal taxaDeCambio = new BigDecimal(api.getBid());
+			double valorConvertido = origem.getValor()
+					.multiply(taxaDeCambio)
+					.doubleValue();
+			
+			destino.setValor(new BigDecimal(valorConvertido));
+			return destino;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			throw new ConversorException("Erro ao converter moeda : " + e.getMessage());
+		}
 	}
 
 }
