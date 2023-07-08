@@ -1,6 +1,7 @@
 package com.io.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.io.excecao.UtilException;
 
 /**
  * @author Danilo William
@@ -21,7 +22,7 @@ public class JsonUtil {
 			api =  mapper.readValue(json, DadosRetornoApi.class);
 			return api;
 		} catch (Exception e) {
-			throw new RuntimeException("Erro ao aplicar formatacao : " + e.getMessage());
+			throw new UtilException("Erro ao aplicar formatacao : " + e.getMessage());
 		}
 	}
 	

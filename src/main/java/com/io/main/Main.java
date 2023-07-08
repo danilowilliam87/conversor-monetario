@@ -3,8 +3,11 @@ package com.io.main;
 import java.math.BigDecimal;
 
 import com.io.dominio.Dolar;
+import com.io.dominio.Euro;
 import com.io.dominio.LibraEsterlina;
+import com.io.dominio.PesoArgentino;
 import com.io.dominio.PesoChileno;
+import com.io.dominio.Real;
 import com.io.impl.ConversorImpl;
 
 public class Main {
@@ -12,12 +15,20 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
     	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
-    	PesoChileno pc = new PesoChileno();
+    	Euro euro = new Euro(valor);
+    	Real real = new Real();
+    	Dolar dolar = new Dolar();
     	LibraEsterlina lb = new LibraEsterlina();
+    	PesoArgentino pa = new PesoArgentino();
+    	PesoChileno pc = new PesoChileno();
     	ConversorImpl conversorImpl = new ConversorImpl();
     	
-    	System.out.println(conversorImpl.converter(dolar, pc));
+    	
+    	System.out.println("euro em reais" + conversorImpl.converter(euro, real));
+    	System.out.println("euro em dolar" + conversorImpl.converter(euro, dolar));
+    	System.out.println("euro em libras" + conversorImpl.converter(euro, lb));
+    	System.out.println("euro em peso argentino" + conversorImpl.converter(euro, pa));
+    	System.out.println("euro em peso chileno" + conversorImpl.converter(euro, pc));
 
 	}
 
