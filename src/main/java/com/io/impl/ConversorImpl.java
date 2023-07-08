@@ -17,13 +17,7 @@ public class ConversorImpl implements Conversor{
 	@Override
 	public Moeda converter(Moeda origem, Moeda destino) {
 		// TODO Auto-generated method stub
-		if(origem == null || destino == null) {
-			throw new ReferenciaNulaException("objetos nao podem ser nulos");
-		}
-		
-		if(origem == destino) {
-			throw new ConversorException("informe moedas de tipos diferentes");
-		}
+		validarMoedas(origem, destino);
 		
 		try {
 			String url = Url.getUrl(origem, destino);
@@ -40,6 +34,19 @@ public class ConversorImpl implements Conversor{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw new ConversorException("Erro ao converter moeda : " + e.getMessage());
+		}
+	}
+	
+	private void validarMoedas(Moeda origem, Moeda destino) {
+		if(origem == null || destino == null) {
+			throw new ReferenciaNulaException("objetos nao podem ser nulos");
+		}
+		
+		String nomeOrigem = origem.getClass().toString();
+		String nomeDestino = destino.getClass().toString();
+		
+		if(nomeOrigem.equals(nomeDestino)) {
+			throw new ConversorException("informe moedas de tipos diferentes");
 		}
 	}
 

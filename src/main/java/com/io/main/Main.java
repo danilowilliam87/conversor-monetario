@@ -24,11 +24,20 @@ public class Main {
     	ConversorImpl conversorImpl = new ConversorImpl();
     	
     	
-    	System.out.println("euro em reais" + conversorImpl.converter(euro, real));
-    	System.out.println("euro em dolar" + conversorImpl.converter(euro, dolar));
-    	System.out.println("euro em libras" + conversorImpl.converter(euro, lb));
-    	System.out.println("euro em peso argentino" + conversorImpl.converter(euro, pa));
-    	System.out.println("euro em peso chileno" + conversorImpl.converter(euro, pc));
+//    	System.out.println("euro em reais : " + conversorImpl.converter(euro, real));
+//    	System.out.println("euro em dolar : " + conversorImpl.converter(euro, dolar));
+//    	System.out.println("euro em libras : " + conversorImpl.converter(euro, lb));
+//    	System.out.println("euro em peso argentino : " + conversorImpl.converter(euro, pa));
+//    	System.out.println("euro em peso chileno : " + conversorImpl.converter(euro, pc));
+    	
+    	String moeda1 = euro.getClass().toString();
+    	String moeda2 = euro.getClass().toString();
+    	
+    	if(moeda1.equals(moeda2)) {
+    		System.out.println("as moedas são iguais");
+    	}else {
+    		System.out.println("as moedas são diferentes");
+    	}
 
 	}
 

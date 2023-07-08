@@ -1,8 +1,5 @@
 package com.io.util;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import com.io.excecao.UtilException;
 
 
