@@ -35,7 +35,9 @@ public class LibraEsterlina extends Moeda {
 	
 	
 	public LibraEsterlina() {
+		this.valor = new BigDecimal(1.00);
 		this.valor.setScale(2, RoundingMode.HALF_EVEN);
+		this.locale = new Locale("en", "GB");
 		this.formatador = NumberFormat.getCurrencyInstance(locale);
 		this.formatador.setMaximumFractionDigits(2);
 		this.formatador.setMinimumFractionDigits(2);

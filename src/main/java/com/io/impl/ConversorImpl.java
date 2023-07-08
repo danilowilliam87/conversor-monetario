@@ -3,6 +3,7 @@ package com.io.impl;
 import java.math.BigDecimal;
 
 import com.io.dominio.Moeda;
+import com.io.excecao.ConversorException;
 import com.io.excecao.ReferenciaNulaException;
 import com.io.interfaces.Conversor;
 import com.io.util.DadosRetornoApi;
@@ -18,6 +19,10 @@ public class ConversorImpl implements Conversor{
 		// TODO Auto-generated method stub
 		if(origem == null || destino == null) {
 			throw new ReferenciaNulaException("objetos nao podem ser nulos");
+		}
+		
+		if(origem == destino) {
+			throw new ConversorException("informe moedas de tipos diferentes");
 		}
 		
 		String url = Url.getUrl(origem, destino);

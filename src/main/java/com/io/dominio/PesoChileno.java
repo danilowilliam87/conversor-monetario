@@ -33,7 +33,9 @@ public class PesoChileno extends Moeda {
 	}
 	
 	public PesoChileno() {
+		this.valor = new BigDecimal(1.00);
 		this.valor.setScale(2, RoundingMode.HALF_EVEN);
+		this.locale = new Locale("es", "CL");
 		this.formatador = NumberFormat.getCurrencyInstance(locale);
 		this.formatador.setMaximumFractionDigits(2);
 		this.formatador.setMinimumFractionDigits(2);

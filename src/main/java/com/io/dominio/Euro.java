@@ -36,6 +36,7 @@ public class Euro extends Moeda {
 	
 	
 	public Euro() {
+		this.valor = new BigDecimal(1.00);
 		this.valor.setScale(2, RoundingMode.HALF_EVEN);
 		this.locale = new Locale("de", "DE");
 		this.formatador = NumberFormat.getCurrencyInstance(locale);
