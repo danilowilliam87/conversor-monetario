@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.io.dominio.Dolar;
 import com.io.dominio.Euro;
 import com.io.dominio.LibraEsterlina;
+import com.io.dominio.Moeda;
 import com.io.dominio.PesoArgentino;
 import com.io.dominio.PesoChileno;
 import com.io.dominio.Real;
@@ -53,49 +54,54 @@ class ConversorDolarTest {
 	
 	@Test
     void converterDolarEmRealTest() {
-    	Real real = new Real();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
+    	BigDecimal valor = new BigDecimal(10.00);
+    	Moeda origem = new Dolar(valor);
+    	Moeda destino = new Real();
     	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("R$ 4,87", conversorImpl.converter(dolar, real).toString());
+    	double valorFinal = conversorImpl.converter(origem, destino).getValor().doubleValue();
+    	assertEquals(48.715, valorFinal, 0.001);
     }
 	
 	
 	@Test
     void converterDolarEmEuroTest() {
-    	Euro euro = new Euro();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
+		BigDecimal valor = new BigDecimal(10.00);
+    	Moeda origem = new Dolar(valor);
+    	Moeda destino = new Euro();
     	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("0,91 €", conversorImpl.converter(dolar, euro).toString());
+    	double valorFinal = conversorImpl.converter(origem, destino).getValor().doubleValue();
+    	assertEquals(9.116, valorFinal, 0.001);
     }
 	
 	@Test
     void converterDolarEmLibrasEsterlinasTest() {
-    	LibraEsterlina lb = new LibraEsterlina();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
+		BigDecimal valor = new BigDecimal(10.00);
+    	Moeda origem = new Dolar(valor);
+    	Moeda destino = new LibraEsterlina();
     	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("£0.78", conversorImpl.converter(dolar, lb).toString());
+    	double valorFinal = conversorImpl.converter(origem, destino).getValor().doubleValue();
+    	assertEquals(7.786, valorFinal, 0.001);
     }
 	
 	
 	@Test
     void converterDolarEmPesoArgentinoTest() {
-    	PesoArgentino pa = new PesoArgentino();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
+		BigDecimal valor = new BigDecimal(10.00);
+    	Moeda origem = new Dolar(valor);
+    	Moeda destino = new PesoArgentino();
     	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("$ 260,96", conversorImpl.converter(dolar, pa).toString());
+    	double valorFinal = conversorImpl.converter(origem, destino).getValor().doubleValue();
+    	assertEquals(2609.581, valorFinal, 0.001);
     }
 	
 	@Test
     void converterDolarEmPesoChilenoTest() {
-    	PesoChileno pc = new PesoChileno();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Dolar dolar = new Dolar(valor);
+		BigDecimal valor = new BigDecimal(10.00);
+    	Moeda origem = new Dolar(valor);
+    	Moeda destino = new PesoChileno();
     	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("$807,02", conversorImpl.converter(dolar, pc).toString());
+    	double valorFinal = conversorImpl.converter(origem, destino).getValor().doubleValue();
+    	assertEquals(8070.2, valorFinal, 0.001);
     }
 
 }

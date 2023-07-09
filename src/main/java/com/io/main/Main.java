@@ -33,6 +33,21 @@ public class Main {
     	System.out.println("Real para peso Chileno " + impl.converter(origem, destino).getValor().doubleValue());
         destino = new PesoArgentino();
     	System.out.println("Real para peso Argentino " + impl.converter(origem, destino).getValor().doubleValue());
+    	
+    	
+    	System.out.println("Conversão de Dolar para outras moedas");
+    	origem = new Dolar(valor);
+    	destino = new Real();
+    	
+    	System.out.println("Dolar para Real " + impl.converter(origem, destino).getValor().doubleValue());
+    	destino = new Euro();
+    	System.out.println("Dolar para Euro " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new LibraEsterlina();
+    	System.out.println("Dolar para Libra " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new PesoChileno();
+    	System.out.println("Dolar para P.Chileno " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new PesoArgentino();
+    	System.out.println("Dolar para P.Argentino " + impl.converter(origem, destino).getValor().doubleValue());
 
         
     	
