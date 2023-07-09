@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 
+import com.io.dominio.Dolar;
 import com.io.dominio.Euro;
 import com.io.dominio.Moeda;
 import com.io.dominio.PesoArgentino;
@@ -51,22 +52,32 @@ class ConversorPesoArgentinoTest {
 	
 	@Test
 	void converterParaReal() {
-		BigDecimal valor = new BigDecimal(1.0);
+		BigDecimal valor = new BigDecimal(10.00);
 		Moeda origem = new PesoArgentino(valor);
 		Moeda destino = new Real();
 		ConversorImpl impl = new ConversorImpl();
-		String retorno = impl.converter(origem, destino).toString();
-		assertEquals("R$ 0,19", retorno);
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(0.187, valorFinal, 0.001);
 	}
 	
 	@Test
 	void converterParaEuro() {
-		BigDecimal valor = new BigDecimal(1.0);
+		BigDecimal valor = new BigDecimal(10.00);
 		Moeda origem = new PesoArgentino(valor);
 		Moeda destino = new Euro();
 		ConversorImpl impl = new ConversorImpl();
 		double retorno = impl.converter(origem, destino).getValor().doubleValue();
 		assertEquals(0.0349, retorno, 0.001);
+	}
+	
+	@Test
+	void converterParaDolar() {
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new PesoArgentino(valor);
+		Moeda destino = new Dolar();
+		ConversorImpl impl = new ConversorImpl();
+		double retorno = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(0.0383, retorno, 0.001);
 	}
 
 }
