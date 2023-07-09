@@ -86,6 +86,19 @@ public class Main {
     	System.out.println("Peso Argentino para Dolar " + impl.converter(origem, destino).getValor().doubleValue());
         destino = new Euro();
     	System.out.println("P.Argentino para Euro" + impl.converter(origem, destino).getValor().doubleValue());
+    	
+    	
+    	
+    	System.out.println("Conversão de Peso ARgentino para Real, Dolar e Euro ");
+    	origem = new PesoChileno(valor);
+    	destino = new Real();
+    	
+    	System.out.println("Peso Argentino para Real " + impl.converter(origem, destino).getValor().doubleValue());
+    	destino = new Dolar();
+    	System.out.println("Peso Argentino para Dolar " + impl.converter(origem, destino).getValor().doubleValue());
+        
+    	
+    	System.out.println(origem);
 
         
     	
