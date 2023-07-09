@@ -11,8 +11,6 @@ import com.io.dominio.Dolar;
 import com.io.dominio.Euro;
 import com.io.dominio.LibraEsterlina;
 import com.io.dominio.Moeda;
-import com.io.dominio.PesoArgentino;
-import com.io.dominio.PesoChileno;
 import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
 import com.io.impl.ConversorImpl;
@@ -55,31 +53,31 @@ class ConversorLibraEsterlinaTest {
 	@Test
 	void converterLibraEsterlinaParaReal() {
 		BigDecimal valor = new BigDecimal(10.0);
-		LibraEsterlina le = new LibraEsterlina(valor);
-		Moeda moeda = new Real();
+		Moeda origem = new LibraEsterlina(valor);
+		Moeda destino = new Real();
 		ConversorImpl impl = new ConversorImpl();
-		String retorno = impl.converter(le, moeda).toString();
-		assertEquals("R$ 62,55", retorno);
+		double retorno = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(62.546, retorno, 0.001);
 	}
 	
 	@Test
 	void converterLibraEsterlinaParaDolar() {
 		BigDecimal valor = new BigDecimal(10.0);
-		LibraEsterlina le = new LibraEsterlina(valor);
-		Moeda moeda = new Dolar();
+		Moeda origem = new LibraEsterlina(valor);
+		Moeda destino = new Dolar();
 		ConversorImpl impl = new ConversorImpl();
-		String retorno = impl.converter(le, moeda).toString();
-		assertEquals("$12.84", retorno);
+		double retorno = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(12.836, retorno, 0.001);
 	}
 	
 	@Test
 	void converterLibraEsterlinaParaEuro() {
 		BigDecimal valor = new BigDecimal(10.0);
-		LibraEsterlina le = new LibraEsterlina(valor);
-		Moeda moeda = new Euro();
+		Moeda origem = new LibraEsterlina(valor);
+		Moeda destino = new Euro();
 		ConversorImpl impl = new ConversorImpl();
-		String retorno = impl.converter(le, moeda).toString();
-		assertEquals("11,70 €", retorno);
+		double retorno = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(11.703, retorno, 0.001);
 	}
 	
 	

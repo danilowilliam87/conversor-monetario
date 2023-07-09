@@ -48,6 +48,17 @@ public class Main {
     	System.out.println("Dolar para P.Chileno " + impl.converter(origem, destino).getValor().doubleValue());
         destino = new PesoArgentino();
     	System.out.println("Dolar para P.Argentino " + impl.converter(origem, destino).getValor().doubleValue());
+    	
+    	
+    	System.out.println("Conversão de Libra para Real, Dolar e Euro");
+    	origem = new LibraEsterlina(valor);
+    	destino = new Real();
+    	
+    	System.out.println("Libra para Real " + impl.converter(origem, destino).getValor().doubleValue());
+    	destino = new Dolar();
+    	System.out.println("Libra para Doalr " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new Euro();
+    	System.out.println("Libra para Euro " + impl.converter(origem, destino).getValor().doubleValue());
 
         
     	
