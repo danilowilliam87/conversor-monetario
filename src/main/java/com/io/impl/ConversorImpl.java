@@ -1,6 +1,7 @@
 package com.io.impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import com.io.dominio.Moeda;
 import com.io.excecao.ConversorException;
@@ -28,8 +29,9 @@ public class ConversorImpl implements Conversor{
 			double valorConvertido = origem.getValor()
 					.multiply(taxaDeCambio)
 					.doubleValue();
+			BigDecimal valorFinal = acrescentarCasasDecimais(valorConvertido);
 			
-			destino.setValor(new BigDecimal(valorConvertido));
+			destino.setValor(valorFinal);
 			return destino;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -48,6 +50,18 @@ public class ConversorImpl implements Conversor{
 		if(nomeOrigem.equals(nomeDestino)) {
 			throw new ConversorException("informe moedas de tipos diferentes");
 		}
+	}
+	
+	private BigDecimal acrescentarCasasDecimais(double valor) {
+		BigDecimal novoValor = new BigDecimal(valor);
+		if(valor > 0 && valor < 1) {
+			String [] casasDecimais = Double.toString(valor).split("\\.");
+			int numeroCasasDecimais = casasDecimais[1].length();
+			novoValor.setScale(numeroCasasDecimais, RoundingMode.HALF_EVEN);
+			return novoValor;
+		}
+		novoValor.setScale(2, RoundingMode.HALF_EVEN);
+		return novoValor;
 	}
 
 }
