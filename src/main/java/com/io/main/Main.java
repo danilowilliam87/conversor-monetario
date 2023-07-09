@@ -59,6 +59,21 @@ public class Main {
     	System.out.println("Libra para Doalr " + impl.converter(origem, destino).getValor().doubleValue());
         destino = new Euro();
     	System.out.println("Libra para Euro " + impl.converter(origem, destino).getValor().doubleValue());
+    	
+    	
+    	System.out.println("Conversão de Euro para outras moedas");
+    	origem = new Euro(valor);
+    	destino = new Real();
+    	
+    	System.out.println("Euro para Real " + impl.converter(origem, destino).getValor().doubleValue());
+    	destino = new Dolar();
+    	System.out.println("Euro para Dolar " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new LibraEsterlina();
+    	System.out.println("Euro para Libra " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new PesoChileno();
+    	System.out.println("Euro para P.Chileno " + impl.converter(origem, destino).getValor().doubleValue());
+        destino = new PesoArgentino();
+    	System.out.println("Euro para P.Argentino " + impl.converter(origem, destino).getValor().doubleValue());
 
         
     	

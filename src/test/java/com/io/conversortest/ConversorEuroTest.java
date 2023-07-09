@@ -54,47 +54,52 @@ class ConversorEuroTest {
 	
 	@Test
 	void converterEuroEmReal() {
-		Real real = new Real();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Euro euro = new Euro(valor);
-    	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("R$ 5,34", conversorImpl.converter(euro, real).toString());
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new Euro(valor);
+		Moeda destino = new Real();
+		ConversorImpl impl = new ConversorImpl();
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(53.412, valorFinal, 0.001);
 	}
 	
 	@Test
 	void converterEuroEmDolar() {
-		Moeda moeda = new Dolar();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Euro euro = new Euro(valor);
-    	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("$1.10", conversorImpl.converter(euro, moeda).toString());
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new Euro(valor);
+		Moeda destino = new Dolar();
+		ConversorImpl impl = new ConversorImpl();
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(10.967, valorFinal, 0.001);
 	}
 	
 	@Test
 	void converterEuroEmLibrasEsterlinas() {
-		Moeda moeda = new LibraEsterlina();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Euro euro = new Euro(valor);
-    	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("£0.85", conversorImpl.converter(euro, moeda).toString());
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new Euro(valor);
+		Moeda destino = new LibraEsterlina();
+		ConversorImpl impl = new ConversorImpl();
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(8.543, valorFinal, 0.001);
 	}
 	
 	@Test
 	void converterEuroEmPesoArgentino() {
-		Moeda moeda = new PesoArgentino();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Euro euro = new Euro(valor);
-    	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("$ 286,29", conversorImpl.converter(euro, moeda).toString());
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new Euro(valor);
+		Moeda destino = new PesoArgentino();
+		ConversorImpl impl = new ConversorImpl();
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(2862.851, valorFinal, 0.001);
 	}
 	
 	@Test
 	void converterEuroEmPesoChileno() {
-		Moeda moeda = new PesoChileno();
-    	BigDecimal valor = new BigDecimal(1.00);
-    	Euro euro = new Euro(valor);
-    	ConversorImpl conversorImpl = new ConversorImpl();
-    	assertEquals("$860,28", conversorImpl.converter(euro, moeda).toString());
+		BigDecimal valor = new BigDecimal(10.00);
+		Moeda origem = new Euro(valor);
+		Moeda destino = new PesoChileno();
+		ConversorImpl impl = new ConversorImpl();
+		double valorFinal = impl.converter(origem, destino).getValor().doubleValue();
+		assertEquals(8602.8, valorFinal, 0.001);
 	}
 
 }
