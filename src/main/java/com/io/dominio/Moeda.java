@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public abstract class Moeda {
+public  class Moeda {
 	
 	protected BigDecimal valor;
 	

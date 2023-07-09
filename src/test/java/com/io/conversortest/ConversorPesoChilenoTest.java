@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import com.io.dominio.Dolar;
 import com.io.dominio.Moeda;
-import com.io.dominio.PesoArgentino;
 import com.io.dominio.PesoChileno;
 import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
