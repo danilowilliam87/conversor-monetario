@@ -1,11 +1,11 @@
 package com.io.conversortest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+
 
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
+
 
 import com.io.dominio.Dolar;
 import com.io.dominio.Euro;
@@ -14,6 +14,8 @@ import com.io.dominio.Moeda;
 import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
 import com.io.impl.ConversorImpl;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ConversorLibraEsterlinaTest {
 

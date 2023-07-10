@@ -1,7 +1,6 @@
 package com.io.conversortest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+
 
 import java.math.BigDecimal;
 
@@ -14,6 +13,8 @@ import com.io.dominio.PesoArgentino;
 import com.io.dominio.Real;
 import com.io.excecao.ValorInvalidoException;
 import com.io.impl.ConversorImpl;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ConversorPesoArgentinoTest {
 
