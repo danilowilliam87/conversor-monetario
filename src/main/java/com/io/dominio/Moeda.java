@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public abstract class Moeda {
+public  class Moeda {
 	
 	protected BigDecimal valor;
 	
@@ -14,7 +14,7 @@ public abstract class Moeda {
 	
 	protected Locale locale;
 	
-	protected NumberFormat format;
+	protected NumberFormat formatador;
 	
 	public Moeda() {
 		super();
@@ -35,6 +35,23 @@ public abstract class Moeda {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public String getParamUrl() {
+		return paramUrl;
+	}
+
+	public void setParamUrl(String paramUrl) {
+		this.paramUrl = paramUrl;
+	}
+	
 	
 	
 

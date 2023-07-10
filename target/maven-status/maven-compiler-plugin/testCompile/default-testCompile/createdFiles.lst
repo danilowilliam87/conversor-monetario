@@ -1,0 +1,7 @@
+com\io\conversortest\ConversorExceptionTest.class
+com\io\conversortest\ConversorPesoArgentinoTest.class
+com\io\conversortest\ConversorPesoChilenoTest.class
+com\io\conversortest\ConversorRealTest.class
+com\io\conversortest\ConversorEuroTest.class
+com\io\conversortest\ConversorDolarTest.class
+com\io\conversortest\ConversorLibraEsterlinaTest.class
